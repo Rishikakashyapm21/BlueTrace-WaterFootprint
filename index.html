@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BlueTrace - Water Footprint Calculator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h1 class="display-4 text-primary">BlueTrace</h1>
+                <p class="lead">Agriculture Water Footprint Calculator</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0">Enter Your Agricultural Data</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="calculateForm">
+                                <!-- Crop Selection-->
+                                <div class="mb-3">
+                                    <label for="cropType" class="form-label">Crop Type</label>
+                                    <select class="form-select" id="cropType" required>
+                                        <option value="" selected disabled>Select crop</option>
+                                        <option value="wheat">Wheat</option>
+                                        <option value="rice">Rice</option>
+                                        <option value="corn">Corn</option>
+                                        <option value="cotton">Cotton</option>
+                                        <option value="sugarcane">Sugarcane</option>
+                                    </select>
+                                </div>
+                                <!-- Area and Production -->
+                                 <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="area" class="form-label">Cultivation Area (acres)</label>
+                                        <input type="number" class="form-control" id="area" min="0" step="0.1" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="yield" class="form-label">Expected Yield (kg)</label>
+                                        <input type="number" class="form-control" id="yield" min="0" required>
+                                    </div>
+                                 </div>
+
+                                 <!-- Iriigation Method -->
+
+                                 <div class="mb-3">
+                                    <label class="form-label">Irrigation Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="irrigation" id="drip" value="drip" checked>
+                                        <label class="form-check-label" for="drip">Drip Irrigation</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="irrigation" id="sprinkler" value="sprinkler" checked>
+                                        <label class="form-check-label" for="sprinkler">Sprinkler</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="irrigation" id="flood" value="flood" checked>
+                                        <label class="form-check-label" for="flood">Flood Irrigation</label>
+                                    </div>
+                                 </div>
+
+                                 <!-- Climate Factors -->
+
+                                 <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="rainfall" class="form-label">Annual Rainfall (mm)</label>
+                                        <input type="number" class="form-control" id="rainfall" min="0" value="500">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="temperature" class="form-label">Average Temperature (°C)</label>
+                                        <input type="number" class="form-control" id="temperature" min="0" value="25">
+                                    </div>
+                                 </div>
+                                 <button type="submit" class="btn btn-primary w-100 py-2">Calculate Water Footprint</button>
+                            </form>
+
+                            <!-- Results Section -->
+
+                            <div id="results" class="mt-4 d-none">
+                                <h4 class="text-center mb-3">Water Footprint Results</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Total Water Usage</h5>
+                                                <p class="display-6 text-primary" id="totalWater">0</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Water Footprint</h5>
+                                                <p class="display-6 text-primary" id="waterFootprint">0</p>
+                                                <p class="card-text">litres per kg</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Recommendations -->
+                                <div class="card border-info">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0">Water Saving Recommendations</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul id="recommendations" class="mb-0">
+                                            <li>Loading recommendations...</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

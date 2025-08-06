@@ -1,0 +1,46 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'segoe UI' , Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.display-6 {
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+#results {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.recommendation-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recommendation-item:last-child {
+    border-bottom: none;
+}
