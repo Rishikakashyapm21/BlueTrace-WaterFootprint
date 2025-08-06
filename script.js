@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
             recommendations.push("Your current practices are efficient. Monitor soil moisture for further optimization opportunities");
         }
 
-        // Add to DOM
         recommendations.forEach(rec => {
             const li = document.createElement('li');
             li.className = 'recommendation-item';
